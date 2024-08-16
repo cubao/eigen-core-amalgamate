@@ -6,7 +6,7 @@ with open('Amalgamate.h', 'r') as f:
     lines = f.readlines()
 
 f = None
-prefix = '// cubao-amalgamate-source: '
+prefix = '// cubao/eigen-core-amalgamate: '
 for line in lines:
     if line.startswith(prefix):
         path = line[len(prefix):].strip()
