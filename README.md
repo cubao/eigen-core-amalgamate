@@ -6,9 +6,14 @@
 
 Amalgamated Eigen headers:
 
--   `Eigen/Core`: [source](eigen-src/Eigen/Core) -> [amalgated](eigen-dst/Eigen/Core)
--   `Eigen/SparseCore`: [source](eigen-src/Eigen/Sparse) -> [amalgated](eigen-dst/Eigen/SparseCore)
+-   `Eigen/Core`: [source](eigen-src/Eigen/Core) -> [amalgamated](eigen-dst/Eigen/Core)
+-   `Eigen/SparseCore`: [source](eigen-src/Eigen/Sparse) -> [amalgamated](eigen-dst/Eigen/SparseCore)
 
 Test: `make build test`
 
 ![](test.png)
+
+Related:
+
+-   https://sqlite.org/amalgamation.html
+-   https://github.com/edlund/amalgamate

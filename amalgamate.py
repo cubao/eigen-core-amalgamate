@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+# https://github.com/edlund/amalgamate
 # amalgamate.py - Amalgamate C source and header files.
 # Copyright (c) 2012, Erik Edlund <erik.edlund@32767.se>
 # 
