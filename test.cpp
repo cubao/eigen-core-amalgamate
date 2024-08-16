@@ -1,9 +1,11 @@
 #define DBG_MACRO_NO_WARNING
 #include "dbg.h"
 
-#include <Eigen/Core>
 #include <vector>
 #include <iostream>
+
+#include <Eigen/Core>
+#include <Eigen/SparseCore>
 
 using RowVectors = Eigen::Matrix<double, Eigen::Dynamic, 3, Eigen::RowMajor>;
 using RowVectorsNx3 = RowVectors;
@@ -15,6 +17,10 @@ void update(Eigen::Ref<RowVectorsNx2> xys) {
 }
 
 int main(int argc, char **argv) {
+	dbg(EIGEN_WORLD_VERSION);
+	dbg(EIGEN_MAJOR_VERSION);
+	dbg(EIGEN_MINOR_VERSION);
+
 	Eigen::Vector3d xyz(1, 2, 3);
 	dbg(xyz.transpose());
 
@@ -32,6 +38,8 @@ int main(int argc, char **argv) {
 	update(M.leftCols(2));
 	std::cout << M << std::endl;
 	// dbg(M); // https://github.com/sharkdp/dbg-macro/issues/131
+
+	// https://eigen.tuxfamily.org/dox/group__SparseCore__Module.html
 
 	return 0;
 }

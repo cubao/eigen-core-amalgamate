@@ -14,3 +14,5 @@ run:
 	./test0
 	@echo ==================test1
 	./test1
+	bash -c "diff <(./test0) <(./test1)"
+
