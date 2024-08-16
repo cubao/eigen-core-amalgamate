@@ -3,6 +3,7 @@ all:
 
 amalgamate:
 	python3 amalgamate.py -c config.json -s eigen-src
+	python3 split.py
 
 build:
 	g++ test.cpp -std=gnu++11 -o test0 -I eigen-src
