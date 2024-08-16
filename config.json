@@ -1,10 +1,9 @@
 {
 	"project": "eigen-core",
-		"target": "Core.h",
-		"sources": [
-			"eigen-src/Eigen/Core",
-			"eigen-src/Eigen/SparseCore"
-		],
-		"include_paths": [
-		]
+	"target": "Amalgamate.h",
+	"sources": [
+		"Eigen/Core",
+		"Eigen/SparseCore"
+	],
+	"include_paths": []
 }
