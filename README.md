@@ -1,0 +1,1 @@
+# eigen-core-amalgamate
