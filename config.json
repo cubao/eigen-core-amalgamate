@@ -1,9 +1,8 @@
 {
-	"project": "eigen-core",
-	"target": "Amalgamate.h",
+	"project": "spdlog",
+	"target": "spdlog.h",
 	"sources": [
-		"Eigen/Core",
-		"Eigen/SparseCore"
+		"spdlog/spdlog.h"
 	],
 	"include_paths": []
 }
