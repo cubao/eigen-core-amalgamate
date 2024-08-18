@@ -219,6 +219,7 @@ class TranslationUnit(object):
 		while include_match:
 			if not self._is_within(include_match, skippable_contexts):
 				include_path = include_match.group("path")
+				assert 'stdout_color_sinks-inl.h' not in include_path
 				search_same_dir = include_match.group(1) == '"'
 				found_included_path = self.amalgamation.find_included_file(
 					include_path, self.file_dir if search_same_dir else None)
@@ -226,6 +227,9 @@ class TranslationUnit(object):
 					includes.append((include_match, found_included_path))
 				else:
 					assert 'spdlog' not in include_path
+					assert 'stdout_color_sinks-inl.h' not in include_path
+					assert 'fmt.h' not in include_path
+					assert 'xchar.h' not in include_path, include_path
 			
 			include_match = self.include_pattern.search(self.content,
 				include_match.end())
@@ -295,8 +299,9 @@ def main():
 	amalgamation.generate()
 
 if __name__ == "__main__":
-	# cmd = 'python3 amalgamate.py -c config.json -s .'.split()
-	# import sys
-	# sys.argv = cmd[1:]
+	cmd = 'python3 amalgamate.py -c config.json -s .'.split()
+	import sys
+	sys.argv = cmd[1:]
 	main()
+	print()
 
