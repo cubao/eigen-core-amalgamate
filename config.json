@@ -1,8 +1,10 @@
 {
-	"project": "spdlog",
+	"project": "spdlog22",
 	"target": "spdlog-dst/spdlog/spdlog.h",
 	"sources": [
-		"spdlog/spdlog.h"
+		"spdlog-src/spdlog/spdlog.h"
 	],
-	"include_paths": []
+	"include_paths": [
+		"spdlog-src"
+	]
 }

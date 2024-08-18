@@ -224,6 +224,8 @@ class TranslationUnit(object):
 					include_path, self.file_dir if search_same_dir else None)
 				if found_included_path:
 					includes.append((include_match, found_included_path))
+				else:
+					assert 'spdlog' not in include_path
 			
 			include_match = self.include_pattern.search(self.content,
 				include_match.end())
@@ -293,5 +295,8 @@ def main():
 	amalgamation.generate()
 
 if __name__ == "__main__":
+	# cmd = 'python3 amalgamate.py -c config.json -s .'.split()
+	# import sys
+	# sys.argv = cmd[1:]
 	main()
 
