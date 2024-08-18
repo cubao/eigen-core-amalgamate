@@ -92,7 +92,7 @@ class Amalgamation(object):
 			actual_path = self.actual_path(file_path)
 			print(" - processing \"{0}\"".format(file_path))
 			t = TranslationUnit(file_path, self, True)
-			amalgamation += "\n\n// cubao/eigen-core-amalgamate: " + file_path + "\n"
+			amalgamation += "\n\n// cubao/spdlog-amalgamate: " + file_path + "\n"
 			amalgamation += t.content
 		
 		with open(self.target, 'w') as f:

@@ -2,6 +2,7 @@ all:
 	@echo nothing special
 
 amalgamate:
+	mkdir -p spdlog-dst/spdlog
 	python3 amalgamate.py -c config.json -s spdlog-src
 
 build:
