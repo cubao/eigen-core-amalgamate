@@ -3,7 +3,8 @@
 	"target": "Amalgamate.h",
 	"sources": [
 		"Eigen/Core",
-		"Eigen/SparseCore"
+		"Eigen/SparseCore",
+		"Eigen/Geometry"
 	],
 	"include_paths": []
 }

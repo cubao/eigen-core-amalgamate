@@ -6,6 +6,7 @@
 
 #include <Eigen/Core>
 #include <Eigen/SparseCore>
+#include <Eigen/Geometry>
 
 using RowVectors = Eigen::Matrix<double, Eigen::Dynamic, 3, Eigen::RowMajor>;
 using RowVectorsNx3 = RowVectors;
@@ -40,6 +41,28 @@ int main(int argc, char **argv) {
 	// dbg(M); // https://github.com/sharkdp/dbg-macro/issues/131
 
 	// https://eigen.tuxfamily.org/dox/group__SparseCore__Module.html
+
+	// Test Eigen/Geometry - Quaternion construction and conversion to Matrix
+	std::cout << "\n=== Testing Eigen/Geometry ===" << std::endl;
+
+	// Create a quaternion from axis-angle
+	Eigen::Quaterniond q1(Eigen::AngleAxisd(M_PI / 4, Eigen::Vector3d::UnitZ()));
+	std::cout << "Quaternion (45° around Z-axis):\n" << q1.coeffs().transpose() << std::endl;
+
+	// Convert quaternion to rotation matrix
+	Eigen::Matrix3d rotMat = q1.toRotationMatrix();
+	std::cout << "Rotation Matrix:\n" << rotMat << std::endl;
+
+	// Create quaternion from Euler angles
+	Eigen::Quaterniond q2 = Eigen::AngleAxisd(0.1, Eigen::Vector3d::UnitX())
+	                      * Eigen::AngleAxisd(0.2, Eigen::Vector3d::UnitY())
+	                      * Eigen::AngleAxisd(0.3, Eigen::Vector3d::UnitZ());
+	dbg(q2.coeffs().transpose());
+
+	// Quaternion multiplication and normalization
+	Eigen::Quaterniond q3 = q1 * q2;
+	q3.normalize();
+	dbg(q3.coeffs().transpose());
 
 	return 0;
 }
